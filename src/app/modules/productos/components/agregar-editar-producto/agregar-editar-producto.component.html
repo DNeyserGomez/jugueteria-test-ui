@@ -1,0 +1,70 @@
+<div class="columns px pt-4 mx-1">
+    <div class="column">
+        <strong class="is-size-6">{{opProdService.tituloEditarGuardar}}
+        </strong>
+    </div>
+    <div class="column buttons-position">
+        <button (click)="validarProducto()" class="mr-1" mat-raised-button>{{opProdService.editarGuardarBtn}}</button>
+        <button (click)="cancelarEdicion()" class="mr-1" mat-raised-button>Cancelar</button>
+
+    </div>
+</div>
+
+<mat-card class="mt-4" style="text-align: center;">
+    <form [formGroup]="productoFG" class="overflow-y">
+        <div class="columns" *ngIf="opProdService.productoSeleccionado.length > 0">
+            <div class="column">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Id</mat-label>
+                    <input  value="{{opProdService.productoSeleccionado[0].id}}" disabled="true"  matInput>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Nombre</mat-label>
+                    <input (ngModelChange)="validacionProductoChange()" maxlength="50" formControlName="nombre" matInput>
+                    <mat-hint>{{nombreHint}}</mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column pt-0">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Descripción</mat-label>
+                    <input (ngModelChange)="validacionProductoChange()" maxlength="100" formControlName="descripcion" matInput>
+                    <mat-hint>{{descripcionHint}}</mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column pt-0">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Edad Mínima</mat-label>
+                    <input (ngModelChange)="validacionProductoChange()" maxlength="2" type="tel" formControlName="edadMinima" matInput>
+                    <mat-hint>{{edadMinimaHint}}</mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column pt-0">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Compañía</mat-label>
+                    <input (ngModelChange)="validacionProductoChange()" maxlength="50" formControlName="compania" matInput>
+                    <mat-hint>{{companiaHint}}</mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column pt-0">
+
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Precio</mat-label>
+                    <input (ngModelChange)="validacionProductoChange()" maxlength="6" type="tel" formControlName="precio" matInput>
+                    <mat-hint>{{precioHint}}</mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</mat-card>

@@ -1,0 +1,52 @@
+<div class="columns px pt-4 mx-1">
+    <div class="column">
+        <strong class="is-size-6"> Lista de productos
+        </strong>
+    </div>
+    <div class="column buttons-position">
+        <button (click)="agregarEditar(1)" class="mr-1" mat-raised-button>Nuevo</button>
+        <button (click)="agregarEditar(2)" disabled="{{editar}}" class="mr-1" mat-raised-button>Editar</button>
+        <button (click)="openDialog()" class="mr-1" disabled="{{borrar}}" mat-raised-button>Borrar</button>
+
+    </div>
+</div>
+<mat-card class="mt-4">
+    <div class="columns is-centered overflow-y">
+        <div class="column" style="justify-content: center; display: flex;">
+            <div class="table-container" style="width: 100%;">
+                <table class="table is-fullwidth">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Edad mínima</th>
+                            <th>Compañía</th>
+                            <th>Precio</th>
+                            <th class="pt-2">
+                                <img matTooltip="Selecciona un producto para editar o eliminar" height="20px"
+                                    src="/assets/icons/information-circle-outline.svg" alt="">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let p of opProdService.listaProductos">
+                            <td>{{p.id}}</td>
+                            <td>{{p.nombre}}</td>
+                            <td>{{p.descripcion}}</td>
+                            <td>{{p.edadMinima}}</td>
+                            <td>{{p.compania}}</td>
+                            <td>{{p.precio}}</td>
+                            <td>
+                                <mat-checkbox id="check{{p.id}}" checked="{{p.checked}}"
+                                    (change)="seleccionarProducto($event.checked, p)"
+                                    class="example-margin"></mat-checkbox>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</mat-card>

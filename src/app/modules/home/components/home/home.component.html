@@ -1,0 +1,49 @@
+<mat-drawer-container class="example-container" autosize [hasBackdrop]="true">
+    <mat-drawer #drawer class="example-sidenav" mode="over">
+        <div class="pt-4 pr-2" style="text-align: right;">
+            <button type="button" mat-button (click)="drawer.toggle()">
+                <img src="/assets/icons/close-outline.svg" alt="">
+            </button>
+        </div>
+        <div class="pt-5" style="display: flex; justify-content: center;">
+            <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Avatar" class="avatar">
+        </div>
+
+        <mat-tree  class="pt-4" [dataSource]="dataSource" [treeControl]="treeControl">
+            <!-- This is the tree node template for leaf nodes -->
+            <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+                <!-- use a disabled button to provide padding for tree leaf -->
+                <button mat-icon-button disabled></button>
+                {{node.name}}
+              </mat-tree-node>
+            <!-- This is the tree node template for expandable nodes -->
+            <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+               
+              <button class="ml-2" mat-icon-button matTreeNodeToggle
+                      [attr.aria-label]="'Toggle ' + node.name">
+                      <img height="20px" src="{{treeControl.isExpanded(node) ? '/assets/icons/chevron-up-outline.svg' : '/assets/icons/chevron-down-outline.svg'}}">
+              </button>
+              {{node.name}}
+            </mat-tree-node>
+          </mat-tree>
+          
+    </mat-drawer>
+
+    <div class="example-sidenav-content">
+        <mat-toolbar style="justify-content: space-between;">
+            <button type="button" mat-button (click)="drawer.toggle()">
+                <img src="/assets/icons/menu-outline.svg" alt="">
+            </button>
+            <span style="text-align: center;">Bienvenido</span>
+            <button style="color: #f5f5f5; border: none;"></button>
+
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+        <div class="footer">
+            <label for="">&nbsp;</label>
+            <p class="mt-4" style="text-align: center;">Footer</p>
+            <label for="">&nbsp;</label>
+        </div>
+    </div>
+
+</mat-drawer-container>

@@ -1,1 +1,98 @@
 /* You can add global styles to this file, and also import other style files */
+@import "bulma/sass/utilities/_all.sass";
+@import "bulma/sass/elements/table.sass";
+@import "bulma/sass/grid/columns.sass";
+@import "bulma/sass/helpers/spacing.sass";
+@import "bulma/sass/helpers/flexbox.sass";
+@import "bulma/sass/helpers/typography.sass";
+
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+mat-card {
+    margin-left: 15%;
+    margin-right: 15%;
+    height: 65vh;
+}
+
+.px {
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.buttons-position {
+    display: flex;
+    justify-content: end;
+}
+
+mat-hint {
+    color: #f44336 !important;
+}
+
+.example-full-width {
+    width: 50%;
+}
+
+.overflow-y {
+    height: 63vh;
+    overflow: hidden scroll;
+}
+
+@media only screen //and (min-device-width : 769px) 
+
+and (max-device-width : 936px) {
+
+    /* Styles */
+    .px {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    mat-card {
+        margin-left: 5%;
+        margin-right: 5%;
+        height: 65vh;
+    }
+
+    .example-full-width {
+        width: 70%;
+    }
+
+}
+
+@media only screen and (max-device-width : 768px) {
+    .buttons-position {
+        display: flex;
+        justify-content: start;
+    }
+
+    .example-full-width {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-device-height : 849px) {
+    mat-card {
+        height: 60vh;
+    }
+    .overflow-y {
+        height: 58vh;
+    }
+}
+
+@media only screen and (max-device-height : 667px) {
+    mat-card {
+        height: 55vh;
+    }
+    .overflow-y {
+        height: 53vh;
+    }
+}

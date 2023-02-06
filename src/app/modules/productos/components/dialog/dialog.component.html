@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>¡Aviso!</h1>
+<div mat-dialog-content>
+    ¿Estás seguro de eliminar el producto con el id <strong>{{opProdService.productoSeleccionado[0].id}}</strong>?
+</div>
+<div mat-dialog-actions>
+    <button (click)="opProdService.eliminarProducto(opProdService.productoSeleccionado[0].id)" mat-button
+        mat-dialog-close>Aceptar</button>
+</div>
